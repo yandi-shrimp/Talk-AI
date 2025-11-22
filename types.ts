@@ -1,5 +1,6 @@
 
 export type DifficultyLevel = 'Easy' | 'Medium' | 'Hard';
+export type VoiceGender = 'male' | 'female';
 
 export enum Role {
   USER = 'user',
@@ -25,6 +26,7 @@ export interface ChatMessage {
   betterWay?: string; // Improved phrasing for user
   hints?: string[]; // Suggested replies for the user
   audioUrl?: string; // If we implement TTS
+  score?: number; // Points earned for this message
 }
 
 export interface GeminiParsedResponse {
@@ -34,6 +36,7 @@ export interface GeminiParsedResponse {
   better_way_to_say?: string | null;
   encouragement_score: number; // 1-5 points for the user
   suggested_replies: string[]; // 3 potential answers for the student
+  is_conversation_finished: boolean; // True if the conversation should end
 }
 
 export interface UserStats {

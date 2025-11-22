@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ChatMessage, Role } from '../types';
 import { speakText } from '../services/geminiService';
-import { Volume2, Info, Globe, Lightbulb } from 'lucide-react';
+import { Volume2, Info, Globe, Lightbulb, Star } from 'lucide-react';
 
 interface ChatBubbleProps {
   message: ChatMessage;
@@ -44,6 +44,14 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, showHints = false, onH
              </button>
           )}
         </div>
+
+        {/* Score Display for User */}
+        {isUser && message.score !== undefined && (
+          <div className="mt-1 mr-1 flex items-center gap-1 text-yellow-500 font-bold text-sm animate-pulse">
+            <Star size={14} fill="currentColor" />
+            <span>+{message.score}</span>
+          </div>
+        )}
 
         {/* Suggested Hints (Gray Text) */}
         {!isUser && showHints && message.hints && message.hints.length > 0 && (
