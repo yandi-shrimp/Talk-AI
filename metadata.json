@@ -1,0 +1,7 @@
+{
+  "name": "Talk AI",
+  "description": "An interactive English conversation companion for elementary students powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
